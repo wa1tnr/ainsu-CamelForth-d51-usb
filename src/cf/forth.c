@@ -602,9 +602,11 @@ CODE(dothhhh) {        /* temporary definition for testing */
 CODE (_dotsf) { /* follow-up */
     char ch[0];
     ch[0] = '>';
+    putch(ch[0]);
+    ch[0] = ' ';
+    putch(ch[0]);
     unsigned int *p;
     p = &pstack[PSTACKSIZE-2];      /* deepest element on stack */
-    putch(ch[0]);
     while (p >= psp) { printf("%1X ", *p--); }
 }
 
