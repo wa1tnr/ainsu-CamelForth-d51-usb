@@ -1203,7 +1203,7 @@ THREAD(move) =  { Fenter, Ttor, Ttwodup, Tswap, Tdup, Trfetch, Tplus,
 THREAD(depth) = { Fenter, Tspfetch, Ts0, Tswap, Tminus, Tcell, Tslash, 
         Texit };
 THREAD(environmentq) = { Fenter, Ttwodrop, Tzero, Texit };
-THREAD(dots) = { Fenter, Texit };
+THREAD(dots) = { Fenter, T_dots, T_dotsf, Texit };
 
 /*
 THREAD() = { Fenter,   Texit };
