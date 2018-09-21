@@ -733,8 +733,8 @@ PRIMITIVE(keyq);
 // PRIMITIVE(dot);
 PRIMITIVE(dothh);
 PRIMITIVE(dothhhh);
-PRIMITIVE(_dots);
 PRIMITIVE(_dotsf);
+PRIMITIVE(_dots);
 PRIMITIVE(dump);
 PRIMITIVE(bye);
 
@@ -955,8 +955,9 @@ THREAD(sign) = { Fenter, Tzeroless, Tqbranch, OFFSET(4), Tlit, LIT(0x2d),
                 Thold, Texit };
 THREAD(udot) = { Fenter, Tlessnum, Tzero, Tnums, Tnumgreater, Ttype,
                 Tspace, Texit };
-THREAD(dot) = { Fenter, Tlessnum, Tdup, Tabs, Tzero, Tnums, Trot, Tsign,
+THREAD(_dot) = { Fenter, Tlessnum, Tdup, Tabs, Tzero, Tnums, Trot, Tsign,
                 Tnumgreater, Ttype, Texit };
+THREAD(dot) = { Fenter, T_dot, Tspace, Texit };
 THREAD(decimal) = { Fenter, Tlit, LIT(10), Tbase, Tstore, Texit };
 THREAD(hex) = { Fenter, Tlit, LIT(16), Tbase, Tstore, Texit };
 
@@ -1205,7 +1206,7 @@ THREAD(move) =  { Fenter, Ttor, Ttwodup, Tswap, Tdup, Trfetch, Tplus,
 THREAD(depth) = { Fenter, Tspfetch, Ts0, Tswap, Tminus, Tcell, Tslash, 
         Texit };
 THREAD(environmentq) = { Fenter, Ttwodrop, Tzero, Texit };
-THREAD(dots) = { Fenter, T_dots, Tdepth, Tdot, T_dotsf, Texit };
+THREAD(dots) = { Fenter, T_dots, Tdepth, T_dot, T_dotsf, Texit };
 
 /*
 THREAD() = { Fenter,   Texit };
