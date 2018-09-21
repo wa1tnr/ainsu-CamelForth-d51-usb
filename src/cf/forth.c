@@ -1,4 +1,5 @@
 /****h* camelforth/forth.c
+ * patched file: tested only on ATSAMD51J19A 2018 September wa1tnr
  * NAME
  *  forth.c
  * DESCRIPTION
@@ -11,6 +12,7 @@
  *  different.
  * AUTHOR
  *  Brad Rodriguez
+ *  patches: wa1tnr September 2018
  * TODO
  *  split ROM and RAM space
  * HISTORY
