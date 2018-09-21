@@ -602,9 +602,9 @@ CODE(dothhhh) {        /* temporary definition for testing */
 CODE(dots) {    /* print stack, for testing */
     unsigned int *p;
     p = &pstack[PSTACKSIZE-2];      /* deepest element on stack */
-    printf("\n%8x:", (unsigned int)p);
+    printf("%8X:", (unsigned int)p);
  // while (p >= psp) printf(" %8x", *p--); // crashes the interpreter - wa1tnr 10 Sep 2018
-    while (p >= psp) { printf(" %8x", *p--); }
+    while (p >= psp) { printf(" %1X", *p--); }
 }
 
 #undef AINSU_DUMP_EXTERN
