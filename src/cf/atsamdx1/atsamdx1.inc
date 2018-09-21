@@ -98,19 +98,44 @@ int getquery(void) {
  ******
  */
 
+void ESC_lb(void) {
+    char ch[0];
+    ch[0]='\033'; // ESCape
+    putch(ch[0]);
+    ch[0]='\133'; // [
+    putch(ch[0]);
+}
+void fg_yellow(void) {
+    ESC_lb();
+    strcpy(print_string, "0;1;33m");
+    chopped_acm_write(print_string);
+}
+
 void interpreter(void);         /* forward reference */
 
 void camelforth(void) {
     for (volatile int i = 9080706; i > 0; i--) {
     }
-    strcpy(print_string, "\n\nOn branch master");
+
+    strcpy(print_string, "\n\n");
     chopped_acm_write(print_string);
 
-    strcpy(print_string, "\n\nFri Sep 21 22:25:54 UTC 2018");
+    fg_yellow();
+
+    strcpy(print_string, "On branch ainsu-CamelForth-d51-usb");
+    chopped_acm_write(print_string);
+
+    ESC_lb();
+    strcpy(print_string, "0m");
+    chopped_acm_write(print_string);
+
+    strcpy(print_string, "\n\nFri Sep 21 22:58:40 UTC 2018");
     chopped_acm_write(print_string);
 
     strcpy(print_string, "\n\ncamelforth()\n\n");
     chopped_acm_write(print_string);
+
+    fg_yellow();
 
     while (1) {                 /* loop in case interpreter() ever terminates */
         interpreter();
