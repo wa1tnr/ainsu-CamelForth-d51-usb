@@ -605,6 +605,10 @@ CODE(dots) {    /* print stack, for testing */
     while (p >= psp) { printf(" %8x", *p--); }
 }
 
+#undef AINSU_DUMP_EXTERN
+#include "dump.inc"
+#ifndef AINSU_DUMP_EXTERN
+
 CODE(dump) {   /* adr n -- */
     unsigned char *p;
     unsigned int n, i;
@@ -615,6 +619,8 @@ CODE(dump) {   /* adr n -- */
         printf(" %02x", *p++);
     }
 }       
+
+#endif // #ifndef AINSU_DUMP_EXTERN
 
 CODE(bye) {
     run = 0;
