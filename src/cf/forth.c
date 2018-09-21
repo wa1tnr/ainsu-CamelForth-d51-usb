@@ -599,12 +599,24 @@ CODE(dothhhh) {        /* temporary definition for testing */
     printf(" %8x", *psp++);
 }
 
-CODE(dots) {    /* print stack, for testing */
+CODE (_dotsf) { /* follow-up */
+    char ch[0];
+    ch[0] = '>';
     unsigned int *p;
     p = &pstack[PSTACKSIZE-2];      /* deepest element on stack */
-    printf("%8X:", (unsigned int)p);
+    putch(ch[0]);
+    while (p >= psp) { printf("%1X ", *p--); }
+}
+
+CODE(_dots) {    /* print stack, for testing */
+    char ch[0];
+    ch[0] = '<';
+ // unsigned int *p;
+ // p = &pstack[PSTACKSIZE-2];      /* deepest element on stack */
+ // printf("%8X:", (unsigned int)p);
  // while (p >= psp) printf(" %8x", *p--); // crashes the interpreter - wa1tnr 10 Sep 2018
-    while (p >= psp) { printf(" %1X", *p--); }
+    putch(ch[0]);
+ // while (p >= psp) { printf("%1X ", *p--); }
 }
 
 #undef AINSU_DUMP_EXTERN
@@ -719,7 +731,8 @@ PRIMITIVE(keyq);
 // PRIMITIVE(dot);
 PRIMITIVE(dothh);
 PRIMITIVE(dothhhh);
-PRIMITIVE(dots);
+PRIMITIVE(_dots);
+PRIMITIVE(_dotsf);
 PRIMITIVE(dump);
 PRIMITIVE(bye);
 
@@ -1190,7 +1203,7 @@ THREAD(move) =  { Fenter, Ttor, Ttwodup, Tswap, Tdup, Trfetch, Tplus,
 THREAD(depth) = { Fenter, Tspfetch, Ts0, Tswap, Tminus, Tcell, Tslash, 
         Texit };
 THREAD(environmentq) = { Fenter, Ttwodrop, Tzero, Texit };
-
+THREAD(dots) = { Fenter, Texit };
 
 /*
 THREAD() = { Fenter,   Texit };
