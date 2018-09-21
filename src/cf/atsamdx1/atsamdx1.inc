@@ -122,14 +122,14 @@ void camelforth(void) {
 
     fg_yellow();
 
-    strcpy(print_string, "On branch ainsu-CamelForth-d51-usb");
+    strcpy(print_string, "On branch master");
     chopped_acm_write(print_string);
 
     ESC_lb();
     strcpy(print_string, "0m");
     chopped_acm_write(print_string);
 
-    strcpy(print_string, "\n\nFri Sep 21 22:58:40 UTC 2018");
+    strcpy(print_string, "\n\nFri Sep 21 23:18:39 UTC 2018");
     chopped_acm_write(print_string);
 
     strcpy(print_string, "\n\ncamelforth()\n\n");
