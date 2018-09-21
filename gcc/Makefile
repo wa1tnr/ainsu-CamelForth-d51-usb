@@ -255,6 +255,10 @@ endif
 $(SUB_DIRS):
 	$(MK_DIR) "$@"
 
+checkout:
+	# running target '[0;1;34mmake checkout[0m' now
+	@echo "[0;1;32;40mnot implemented. ;)[0m"
+
 install:
 	@echo -n "[0;1;33;40msleeping 5 seconds.."
 	@sleep 5
