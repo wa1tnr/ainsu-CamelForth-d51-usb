@@ -103,8 +103,15 @@ void interpreter(void);         /* forward reference */
 void camelforth(void) {
     for (volatile int i = 9080706; i > 0; i--) {
     }
+    strcpy(print_string, "\n\nOn branch ainsu-CamelForth-d51-usb");
+    chopped_acm_write(print_string);
+
+    strcpy(print_string, "\n\nFri Sep 21 21:41:28 UTC 2018");
+    chopped_acm_write(print_string);
+
     strcpy(print_string, "\n\ncamelforth()\n\n");
     chopped_acm_write(print_string);
+
     while (1) {                 /* loop in case interpreter() ever terminates */
         interpreter();
     }
