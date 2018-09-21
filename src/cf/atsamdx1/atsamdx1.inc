@@ -105,6 +105,11 @@ void ESC_lb(void) {
     ch[0]='\133'; // [
     putch(ch[0]);
 }
+void fg_yellow(void) {
+    ESC_lb();
+    strcpy(print_string, "0;1;33m");
+    chopped_acm_write(print_string);
+}
 
 void interpreter(void);         /* forward reference */
 
@@ -115,9 +120,7 @@ void camelforth(void) {
     strcpy(print_string, "\n\n");
     chopped_acm_write(print_string);
 
-    ESC_lb();
-    strcpy(print_string, "0;1;33m");
-    chopped_acm_write(print_string);
+    fg_yellow();
 
     strcpy(print_string, "On branch ainsu-CamelForth-d51-usb");
     chopped_acm_write(print_string);
@@ -131,6 +134,8 @@ void camelforth(void) {
 
     strcpy(print_string, "\n\ncamelforth()\n\n");
     chopped_acm_write(print_string);
+
+    fg_yellow();
 
     while (1) {                 /* loop in case interpreter() ever terminates */
         interpreter();
