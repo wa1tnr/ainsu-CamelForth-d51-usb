@@ -105,10 +105,27 @@ void ESC_lb(void) {
     ch[0]='\133'; // [
     putch(ch[0]);
 }
+
+void bg_blue(void) {
+    ESC_lb();
+    strcpy(print_string, "44m");
+    chopped_acm_write(print_string);
+}
+
 void fg_yellow(void) {
     ESC_lb();
     strcpy(print_string, "0;1;33m");
     chopped_acm_write(print_string);
+}
+
+void color_reset(void) {
+    ESC_lb();
+    strcpy(print_string, "0m");
+    chopped_acm_write(print_string);
+}
+
+void pad_one_space(void) {
+    putch('\040');
 }
 
 void interpreter(void);         /* forward reference */
@@ -121,15 +138,18 @@ void camelforth(void) {
     chopped_acm_write(print_string);
 
     fg_yellow();
+    bg_blue();
 
-    strcpy(print_string, "On branch master");
+    pad_one_space();
+
+    strcpy(print_string, "On branch ainsu-CamelForth-d51-usb");
     chopped_acm_write(print_string);
 
-    ESC_lb();
-    strcpy(print_string, "0m");
-    chopped_acm_write(print_string);
+    pad_one_space();
 
-    strcpy(print_string, "\n\nFri Sep 21 23:18:39 UTC 2018");
+    color_reset();
+
+    strcpy(print_string, "\n\nFri Sep 21 23:27:54 UTC 2018");
     chopped_acm_write(print_string);
 
     strcpy(print_string, "\n\ncamelforth()\n\n");
