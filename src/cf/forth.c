@@ -607,7 +607,14 @@ CODE (_dotsf) { /* follow-up */
     putch(ch[0]);
     unsigned int *p;
     p = &pstack[PSTACKSIZE-2];      /* deepest element on stack */
-    while (p >= psp) { printf("%1X ", *p--); }
+    int based = *psp++;
+    while (p >= psp) {
+        if (based == 16) {
+            printf("%1X ", *p--);
+        } else {
+            printf("%1d ", *p--);
+        }
+    }
 }
 
 CODE(_dots) {    /* print stack, for testing */
@@ -1206,7 +1213,10 @@ THREAD(move) =  { Fenter, Ttor, Ttwodup, Tswap, Tdup, Trfetch, Tplus,
 THREAD(depth) = { Fenter, Tspfetch, Ts0, Tswap, Tminus, Tcell, Tslash, 
         Texit };
 THREAD(environmentq) = { Fenter, Ttwodrop, Tzero, Texit };
+/*
 THREAD(dots) = { Fenter, T_dots, Tdepth, T_dot, T_dotsf, Texit };
+*/
+THREAD(dots) = { Fenter, T_dots, Tdepth, T_dot, Tbase, Tfetch, T_dotsf, Texit };
 
 /*
 THREAD() = { Fenter,   Texit };
