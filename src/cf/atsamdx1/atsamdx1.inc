@@ -63,15 +63,26 @@ extern unsigned int getKey(void);       // hardware-independent wrapper
  * Terminal I/O functions
  */
 
+/*
 int length_print_string = 0;    // would like to shed this global
+*/
 
 /* USB based */
+/*
 #define printf(format,integer) \
     length_print_string = 0; \
     print_string[0] = (uint32_t) "\0"; \
     sprintf(print_string, format, integer); \
     length_print_string = strlen(print_string); \
         chopped_acm_write(print_string)
+*/
+
+
+#define printf(format,integer) \
+    print_string[0] = (uint32_t) "\0"; \
+    sprintf(print_string, format, integer); \
+        chopped_acm_write(print_string)
+
 
 #define getch getKey
 
