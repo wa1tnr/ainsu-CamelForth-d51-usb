@@ -63,14 +63,10 @@ extern unsigned int getKey(void);       // hardware-independent wrapper
  * Terminal I/O functions
  */
 
-int length_print_string = 0;    // would like to shed this global
-
 /* USB based */
 #define printf(format,integer) \
-    length_print_string = 0; \
     print_string[0] = (uint32_t) "\0"; \
     sprintf(print_string, format, integer); \
-    length_print_string = strlen(print_string); \
         chopped_acm_write(print_string)
 
 #define getch getKey
@@ -131,7 +127,7 @@ void pad_one_space(void) {
 void interpreter(void);         /* forward reference */
 
 void camelforth(void) {
-    for (volatile int i = 9080706; i > 0; i--) {
+    for (volatile int i = 7080706; i > 0; i--) {
     }
 
     strcpy(print_string, "\n\n");
@@ -146,14 +142,14 @@ void camelforth(void) {
     strcpy(print_string, "On branch master");
     strcpy(print_string, "On branch ainsu-CamelForth-d51-usb");
 */
-    strcpy(print_string, "On branch master");
+    strcpy(print_string, "On branch ainsu-CamelForth-d51-usb");
     chopped_acm_write(print_string);
 
     pad_one_space();
 
     color_reset();
 
-    strcpy(print_string, "\n\nSat Sep 22 21:03:03 UTC 2018");
+    strcpy(print_string, "\n\nSun Sep 23 00:06:51 UTC 2018");
     chopped_acm_write(print_string);
 
     strcpy(print_string, "\n\ncamelforth()\n\n");
