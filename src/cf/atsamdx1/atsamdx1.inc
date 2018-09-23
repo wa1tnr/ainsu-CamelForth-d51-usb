@@ -142,7 +142,7 @@ void camelforth(void) {
     strcpy(print_string, "On branch master");
     strcpy(print_string, "On branch ainsu-CamelForth-d51-usb");
 */
-    strcpy(print_string, "On branch ainsu-CamelForth-d51-usb");
+    strcpy(print_string, "On branch master");
     chopped_acm_write(print_string);
 
     pad_one_space();
