@@ -1,2 +1,4 @@
-origin	https://github.com/wa1tnr/ainsu-CamelForth-d51-usb.git (fetch)
-origin	https://github.com/wa1tnr/ainsu-CamelForth-d51-usb.git (push)
+gith	https://github.com/wa1tnr/ainsu-CamelForth-d51-usb.git (fetch)
+gith	https://github.com/wa1tnr/ainsu-CamelForth-d51-usb.git (push)
+origin	/local/path/ainsu-CamelForth-d51-usb-rmt.d/.git (fetch)
+origin	/local/path/ainsu-CamelForth-d51-usb-rmt.d/.git (push)
