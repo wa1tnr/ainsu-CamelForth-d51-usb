@@ -8,6 +8,7 @@
 // trellis M4 PA27
 
 #define NEOPIX_PIN 27
+#define SHORT_DEMO -1
 
 void uSec(void) {
     for (volatile int i = 1; i < 2; i++) { // needs calibration
@@ -57,12 +58,21 @@ void blinkfast(void) {
     }
 }
 
+void color_dark(void) {
+    color = 0x000000;    // dark //
+}
+
 void color_magenta(void) {
     color = 0x090900;    // magenta //
 }
 
+void color_orange(void) {
+    color = 0x001903;    // orange //
+}
+
 void color_blue(void) {
-    color = 0x090000;    // blue   //
+    // color = 0x090000;    // blue   //
+    color = 0x010000;    // blue   //
 }
 
 void color_blink(void) {
@@ -71,9 +81,12 @@ void color_blink(void) {
 }
 
 void quick_npx_demo(void) {
-    for(int i = 5; i > 0; i--) {
-        color_magenta();
+    for(int i = 3; i > 0; i--) {
+        // color_magenta();
+        // color_orange();
+        color_dark();
         color_blink();
+
 	color_blue();
         color_blink();
     }
@@ -81,39 +94,46 @@ void quick_npx_demo(void) {
 
 void neo_pixel_demo(void) {
 
-    quick_npx_demo();
-    quick_npx_demo();
+    if (SHORT_DEMO) {
+        quick_npx_demo();
+        for (int i=14; i>0; i--) {
+            short_timer();
+        }
+        color_dark();
+        color_blink();
+    } else {
 
-    blinkfast();
-    to_color();
+        blinkfast();
+        to_color();
 
-    //        BBRRGG
-    color = 0x090000;    // blue   //
-    to_color();
+        //        BBRRGG
+        color = 0x090000;    // blue   //
+        to_color();
 
-    color = 0x000000;    // dark //
-    to_color();
+        color = 0x000000;    // dark //
+        to_color();
 
-    wide_timer(); wide_timer(); wide_timer();
+        wide_timer(); wide_timer(); wide_timer();
 
-    color = 0x001903;    // orange //
-    to_color();
+        color = 0x001903;    // orange //
+        to_color();
 
-    color = 0x090900;    // magenta //
-    to_color();
-    color = 0x000009;    // green  //
-    to_color();
+        color = 0x090900;    // magenta //
+        to_color();
+        color = 0x000009;    // green  //
+        to_color();
 
-    // color = 0x090000;    // blue   //
-    color = 0x010000;    // blue   //
-    to_color();
+        // color = 0x090000;    // blue   //
+        color = 0x010000;    // blue   //
+        to_color();
 
-/*
-    color = 0x000900;    // red    //
-    to_color();
-    color = 0x001903;    // orange //
-    to_color();
-*/
+        /*
+        color = 0x000900;    // red    //
+        to_color();
+        color = 0x001903;    // orange //
+        to_color();
+        */
+    }
 }
 
 void npx_main(void) {
