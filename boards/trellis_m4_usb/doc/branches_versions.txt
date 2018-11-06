@@ -1,0 +1,13 @@
+Mon Nov  5 23:08:34 UTC 2018
+
+The ainsu-CamelForth-d51-usb version (singleton,
+single target, no 'boards' directory) got all
+the upgrades for dot S (.S) foo.
+
+It's one or two days ahead of the -CF version.
+aka ainsu-CF_USB_CDC/boards/metro_m4_usb.
+
+This (CamelForth proper) has none of that, and
+so must be migrated to one of the other two
+(just mentioned, above) for local development
+(ainsu branding used for those variations).
