@@ -1,17 +1,10 @@
 # ainsu-CamelForth-d51-usb
 
-Boilerplate text from: CamelForth-SAMD51-SAMD21
-
-Present repository is new, 21 September 2018, and
-is a split from CamelForth-SAMD51-SAMD21.
+Present repository was new, 21 September 2018, and
+was a split from CamelForth-SAMD51-SAMD21.
 
 Has 'improvements' which is where the ainsu branding
 comes from.
-
-Remainder of this boilerplate text, README.md, is
-unedited after the copy over.
-
-With exception of date stamp at the very end. ;)
 
 # NEWS
 
@@ -30,6 +23,21 @@ CamelForth is now running on ATSAMD51J19A SAMD51
 via the USB port - fully interactively.  No USART
 connection is used in the branch(es) supporting
 this configuration.
+
+Also supported 06 NOV 2018: Trellis M4 board.  That
+variant has basic CamelForth and keyboard fixes, and
+the dot S word upgrade applied. Metro M4 version may
+have further enhancements (an ansi signon message
+is present).
+
+Boilerplate text from: CamelForth-SAMD51-SAMD21
+
+Remainder of this file unedited 06 NOV - see earlier
+variants of it here - it's been copied to several
+other repositories and was not reviewed for this one.
+
+
+  - - - - -
 
 Initial target for USB was SAMD21; current efforts
 are directed at SAMD51 (Metro M4 Express).  The
@@ -196,6 +204,6 @@ Fri Sep 21 20:59:43 UTC 2018
 
 On branch ainsu-CamelForth-d51-usb
 
- $ cat ./README.md | sed 199q | md5sum
+ $ cat ./README.md | sed 207q | md5sum
 
-fd92cdf23e17dca2ded62036460d28f6  -
+5fb5e2cba11c6412277413b494d6b950
