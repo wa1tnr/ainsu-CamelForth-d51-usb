@@ -271,6 +271,9 @@ install:
 	@./scripts/_bossac_local.sh ./AtmelStart.bin
 	# use 'make checkout' to tell git no changes to AtmelStart.*
 
+cleanup:
+	rm -rf examples hal hpl src usb
+
 clean:
 	rm -f $(OBJS_AS_ARGS)
 	rm -f $(OUTPUT_FILE_PATH)
