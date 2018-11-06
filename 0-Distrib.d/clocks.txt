@@ -1,0 +1,30 @@
+clocks.txt
+
+Tue Nov  6 22:44:43 UTC 2018
+
+SAMD51G19A_trellis_04_Nov_2018_aa.atzip
+
+As usual, the project that started with the above
+atzip file comes from Atmel Start with no frequency
+specified for the clocks:
+
+ $ cat ../boards/trellis_m4_usb/config/peripheral_clk_config.h | egrep FREQ | egrep define
+
+#define CONF_CPU_FREQUENCY 48000000
+#define CONF_GCLK_USB_FREQUENCY 48000000
+
+These were set to '0' (zero!) by AtmelStart.
+
+This is likely due to:
+
+ $ cat ../boards/trellis_m4_usb/config/hpl_oscctrl_config.h | egrep Closed
+// <1=>Closed Loop Mode
+
+Which is enacted by:
+
+#define CONF_DFLL_MODE 0x1
+
+Closed loop mode is not the default; it was selected
+for this project based on code found on the Internet
+(probably the code published by Jake Read).
+
