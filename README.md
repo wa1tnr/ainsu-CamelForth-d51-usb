@@ -200,10 +200,10 @@ over the bootloader).
 Bossac may be in more than one version in the Arduino IDE
 sub-tree; 1.8.0-48 was present and was used, here.
 
-Fri Sep 21 20:59:43 UTC 2018
+Tue Nov  6 00:31:04 UTC 2018
 
 On branch ainsu-CamelForth-d51-usb
 
  $ cat ./README.md | sed 207q | md5sum
 
-5fb5e2cba11c6412277413b494d6b950
+37b4a0e3ef80626f1583594f738c8e50
