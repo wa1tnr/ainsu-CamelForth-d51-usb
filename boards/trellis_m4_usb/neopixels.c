@@ -24,7 +24,10 @@ void short_timer(void) { // human blinkie timescale
 
 void wide_timer(void) { // human blinkie timescale
     uint32_t on_time  = 2140111222; // it's 2147 something ;)
-    for(on_time = 2140111; on_time > 0; on_time--) {
+    // for(on_time = 214011; on_time > 0; on_time--) {
+
+    // two hundred thousand was a bit slow
+    for(on_time = 132022; on_time > 0; on_time--) {
         uSec();
     }
 }
@@ -100,12 +103,17 @@ void neo_pixel_demo(void) {
     to_color();
     color = 0x000009;    // green  //
     to_color();
-    color = 0x090000;    // blue   //
+
+    // color = 0x090000;    // blue   //
+    color = 0x010000;    // blue   //
     to_color();
+
+/*
     color = 0x000900;    // red    //
     to_color();
     color = 0x001903;    // orange //
     to_color();
+*/
 }
 
 void npx_main(void) {
