@@ -1,1 +1,2 @@
+f7da08dd766ce170a825318913248f87  SAMD51G19A_trellis_04_Nov_2018_aa.atzip
 6f442062a7bb91a2be5ee10e46557c29  samd51_usb_cdc_18_SEP_aa.atzip
