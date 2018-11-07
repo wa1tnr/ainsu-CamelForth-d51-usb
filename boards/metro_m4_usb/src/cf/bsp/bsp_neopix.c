@@ -58,21 +58,29 @@ void neopix_show_800k(uint32_t pin, uint8_t *pixels, uint16_t numBytes)
     uint8_t  *ptr, *end, p, bitMask;
     uint32_t  pinMask;
 
-    pinMask =  1ul << pin;
+    pinMask = (1UL << (pin % 32));   // pinMask =  1ul << pin;
     ptr     =  pixels;
     end     =  ptr + numBytes;
     p       = *ptr++;
     bitMask =  0x80;
 
+#ifndef HAS_PORTB
     volatile uint32_t *set = &(PORT->Group[PORTA].OUTSET.reg);
     volatile uint32_t *clr = &(PORT->Group[PORTA].OUTCLR.reg);
+#endif
+
 #ifdef HAS_PORTB
+    volatile uint32_t *set = &(PORT->Group[PORTB].OUTSET.reg);
+    volatile uint32_t *clr = &(PORT->Group[PORTB].OUTCLR.reg);
+#endif
+
+/* #ifdef HAS_PORTBX
     if(pin >= 32) {
         set = &(PORT->Group[PORTB].OUTSET.reg);
         clr = &(PORT->Group[PORTB].OUTCLR.reg);
         pin -= 32;
     }
-#endif
+#endif */
 
     for(;;) {
         *set = pinMask;
