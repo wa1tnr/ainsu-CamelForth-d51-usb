@@ -144,10 +144,21 @@ void system_init(void)
 
 	gpio_set_pin_function(PA16, GPIO_PIN_FUNCTION_OFF);
 
-	// GPIO on PB14
+	// GPIO on PA17
+
+	gpio_set_pin_level(PA17,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
 
 	// Set pin direction to output
-	gpio_set_pin_direction(PB14, GPIO_DIRECTION_OUT);
+	gpio_set_pin_direction(PA17, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(PA17, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on PB14
 
 	gpio_set_pin_level(PB14,
 	                   // <y> Initial level
@@ -156,7 +167,24 @@ void system_init(void)
 	                   // <true"> High
 	                   false);
 
+	// Set pin direction to output
+	gpio_set_pin_direction(PB14, GPIO_DIRECTION_OUT);
+
 	gpio_set_pin_function(PB14, GPIO_PIN_FUNCTION_OFF);
+
+	// GPIO on PB22
+
+	gpio_set_pin_level(PB22,
+	                   // <y> Initial level
+	                   // <id> pad_initial_level
+	                   // <false"> Low
+	                   // <true"> High
+	                   false);
+
+	// Set pin direction to output
+	gpio_set_pin_direction(PB22, GPIO_DIRECTION_OUT);
+
+	gpio_set_pin_function(PB22, GPIO_PIN_FUNCTION_OFF);
 
 	TARGET_USB_init();
 }
