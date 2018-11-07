@@ -11,7 +11,11 @@
 
 // #define NEOPIX_PIN 27
 // #define NEOPIX_PIN 22
-#define NEOPIX_PIN 17
+
+// 22 + 32 = 54
+#define NEOPIX_PIN 54
+
+// #define NEOPIX_PIN 17
 #define SHORT_DEMO -1
 
 void uSec(void) {
