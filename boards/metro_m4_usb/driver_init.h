@@ -23,6 +23,10 @@ extern "C" {
 
 #include "hal_usb_device.h"
 
+// external neopixel - PA17 (D12) perhaps
+#define EXTERN_NPX
+#undef  EXTERN_NPX
+
 void TARGET_USB_CLOCK_init(void);
 void TARGET_USB_init(void);
 
