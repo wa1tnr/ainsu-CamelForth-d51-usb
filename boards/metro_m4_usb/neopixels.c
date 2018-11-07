@@ -5,17 +5,6 @@
 #include "sam.h"
 #include "bsp_neopix.h"
 
-// trellis M4 PA27
-// metro M4 PB22
-// metro M4 PA17 - D12 - alternate for NeoPixel external array
-
-// #define NEOPIX_PIN 27
-// #define NEOPIX_PIN 22
-
-// 22 + 32 = 54
-#define NEOPIX_PIN 54
-
-// #define NEOPIX_PIN 17
 #define SHORT_DEMO -1
 
 void uSec(void) {
@@ -31,11 +20,8 @@ void short_timer(void) { // human blinkie timescale
     }
 }
 
-void wide_timer(void) { // human blinkie timescale
-    uint32_t on_time  = 2140111222; // it's 2147 something ;)
-    // for(on_time = 214011; on_time > 0; on_time--) {
-
-    // two hundred thousand was a bit slow
+void wide_timer(void) {
+    uint32_t on_time  = 2140111222;
     for(on_time = 132022; on_time > 0; on_time--) {
         uSec();
     }
