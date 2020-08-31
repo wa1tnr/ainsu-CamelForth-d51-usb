@@ -1,0 +1,58 @@
+usb_cdc_acm_informal_aug_2020.txt
+
+31 August 2020: None of the below is checked (for
+accuracy, or completeness) in any way; it is
+(simply enough) a manual code tracing.
+
+This is a vague attempt to explain where a few
+of the required USB related hooks were found,
+to do basic USB CDC ACM stuff (typing back and
+forth, as with a USART) in Atmel Start.
+
+In this case, to run Brad Rodriguez' Camel Forth,
+interactively (type stuff, have it reply, all
+via USB using CDC/ACM foo).
+
+ - - -
+
+Output
+
+#define printf ..
+
+https://github.com/wa1tnr/ainsu-CamelForth-d51-usb/blob/master/boards/metro_m4_usb/src/cf/atsamdx1/atsamdx1.inc#L67
+
+Uses: chopped_acm_write()
+
+putch()
+
+https://github.com/wa1tnr/ainsu-CamelForth-d51-usb/blob/master/boards/metro_m4_usb/src/cf/atsamdx1/atsamdx1.inc#L74
+
+Uses: chopped_acm_write()
+
+#define getch getKey
+
+getKey()
+https://github.com/wa1tnr/ainsu-CamelForth-d51-usb/blob/master/boards/metro_m4_usb/src/cf/atsamdx1/atsamdx1_getkey_usb.inc#L3
+
+Uses: cdcdf_acm_read()
+
+From Atmel Start
+
+USB Device Stack CDC ACM Function Implementation
+
+https://github.com/wa1tnr/ainsu-CamelForth-d51-usb/blob/master/boards/metro_m4_usb/usb/class/cdc/device/cdcdf_acm.c
+
+Gives: cdcdf_acm_read()
+
+https://github.com/wa1tnr/ainsu-CamelForth-d51-usb/blob/master/boards/metro_m4_usb/usb/class/cdc/device/cdcdf_acm.c#L304
+
+Gives: cdcdf_acm_write()
+
+https://github.com/wa1tnr/ainsu-CamelForth-d51-usb/blob/master/boards/metro_m4_usb/usb/class/cdc/device/cdcdf_acm.c#L315
+
+
+There are other code entry points to be discussed.
+
+
+Mon Aug 31 19:11:54 UTC 2020
+END.
